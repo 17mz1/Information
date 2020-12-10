@@ -75,7 +75,7 @@ Now you have all the logs. Let's compile a scanning report by filling a table fo
 1. :ship: Are all the possible XSS (script injection) links/routes covered in the table above? (think about any links that will render user inputs, such as URL paramer, cookies, flask flash calls). If not, are those link/pages vulnerable to XSS?
 
 
-## SHIP the Container!!
+## :ship: SHIP the Container!!
 
 Now let's ship it!! Deploying a web application is not easy. By using docker containers, we can bundle all the dependencies into a single image. Follow the steps below:
 
@@ -109,9 +109,9 @@ Now let's ship it!! Deploying a web application is not easy. By using docker con
  - `docker run -p 8081:8081 your_docker_hub_name/your_docker_hub_repo_name:version_info python3 -m qa327`
 
 
-## SHIP the WHOLE SYSTEM
+## :ship: SHIP the WHOLE SYSTEM
 
-However, we don't stop from a single container deployment. In a lot of situtation, your applicaton (or it is now more like a system) consists of a lot of micro-services and applications. For example, here we have our web application services and we also want a proper database services to serve millions of users. Additionally, we want to add web interface so we can easily manage the database. Now our system consists of these services:
+However, we don't stop from a single container deployment. In a lot of situtations, your applicaton (or it is now more like a system) consists of a lot of micro-services and applications. For example, here we have our web application services and we also want a proper database service to serve millions of users. Additionally, we want to add web interface so we can easily manage the database. Now our system consists of these services:
  - `seetgeek-web`: Flask web application (including frontend and backend, in reality people like to further break backend into different independent services)
  - `seetgeek-db` : MySQL database
  - `phpmyadmin`  : Web interface for MySQL
@@ -123,6 +123,10 @@ It also defines some resources:
 2. To run the WHOLE system just issue `docker-compose up`. Then everything should start!! You will see a new folder `mysql_data` created for data store. 
   - web app is running at `0.0.0.0:8081` 
   - database web interface is running at `127.0.0.1:8082`. user name `root`, password `root`, server `db`. (all of these are defined in the docker compose file). 
+
+## Some closing notes about the project:
+
+Besides of deploying the whole system on a single host using docker compose, follwing the same docker-compose file structure, we can write the helm chart for Kubernetes deplyoment on platforms such as Amazon EKS. The idea is very similar. You specify the services and resources needed for your system, and the cluster can help you auto-scale the number of services (containers) needed and auto-config a load balancer. Unfortunately we didn't have enough time to do it this year. Will leave this for future instead. Additionally, here we use our own MySQL instance and a data storage folder. These days people also use other cloud database instance. To switch, it is just as simple as switching the `db_string` you use in the earlier step. 
 
 
 ## Evalution Rubic:
