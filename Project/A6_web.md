@@ -14,8 +14,8 @@ Additionally, in our prototype we are using sqlite database, which is great for 
 However, we are expecting more than 30 million active online users right after our intial deployment. 
 With a single database file cannot accomodate the need of the client. Therefore, in this assignment, we have the following tasks:
 
-- Security Check - SQL-Injection
-- Security Check - XSS
+- Security Check - SQL-Injection [optional but recommended for this assignment]
+- Security Check - XSS [optional but recommended for this assignment]
 - Building and publishing your Docker container
 - Docker compose integrating A MySQL database, database web interface, and our web application. 
 
