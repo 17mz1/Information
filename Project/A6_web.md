@@ -79,7 +79,7 @@ Now you have all the logs. Let's compile a scanning report by filling a table fo
 
 Now let's ship it!! Deploying a web application is not easy. By using docker containers, we can bundle all the dependencies into a single image. Follow the steps below:
 
-1. Insteall and start docker. Think of it as a virtual machine (well on linux it is on the same host but different namespace but you can `treat` it as a virtual machine for now). 
+1. Install and start docker. Think of it as a virtual machine (well on linux it is on the same host but different namespace but you can `treat` it as a virtual machine for now). 
 2. Get used to some typical commands:
  - `docker ps` # list running processes and their containers 
  - `docker kill ps_id` # kill a process
@@ -122,7 +122,7 @@ It also defines some resources:
 1. The only thing you need to change in the `docker-compose.yml` file is the `image` property of the `seetgeek-web:` service. It should point to your own image i.e. `your_docker_hub_name/your_docker_hub_repo_name:version_info`. 
 2. To run the WHOLE system just issue `docker-compose up`. Then everything should start!! You will see a new folder `mysql_data` created for data store. 
   - web app is running at `0.0.0.0:8081` 
-  - database web interface is running at `127.0.0.1:8082`. user name `root`, password `root`, server `db`. (all of these are defined in the docker compose file). 
+  - database web interface is running at `127.0.0.1:8082`. user name `root`, password `root`, server `seetgeek-db`. (all of these are defined in the docker compose file). 
 
 ## Some closing notes about the project:
 
