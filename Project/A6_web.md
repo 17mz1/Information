@@ -123,6 +123,8 @@ It also defines some resources:
 2. To run the WHOLE system just issue `docker-compose up`. Then everything should start!! You will see a new folder `mysql_data` created for data store. 
   - web app is running at `0.0.0.0:8081` 
   - database web interface is running at `127.0.0.1:8082`. user name `root`, password `root`, server `seetgeek-db`. (all of these are defined in the docker compose file). 
+  
+  NOTE: When running `docker-compose up` you may come accross an error: `ERROR: for seetgeek-db  Cannot start service seetgeek-db: Mounts denied: approving PATH/db_init.sql: file does not exist`. If this happens it can be fixed by disabling `Use gRPC FUSE for file sharing` in the Docker Desktop app. Setting can be accessed by `Docker Desktop-> Preferences -> Experimental Features ->Use gRPC FUSE for file sharing`.
 
 ## Some closing notes about the project:
 
